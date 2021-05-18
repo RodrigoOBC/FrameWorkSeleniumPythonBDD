@@ -1,11 +1,18 @@
-from playwright.sync_api import sync_playwright
+from selenium import webdriver
 
 
-class BasePage:
-
-    def __init__(self):
-        play = sync_playwright().start()
-        self.browser = play.chromium.launch(headless=False)
-
-    def page(self):
-        return self.browser.new_page()
+class Browser(object):
+    driver = webdriver.Chrome()
+    driver.set_page_load_timeout(30)
+    driver.maximize_window()
+    
+    # Fecha o browser
+    def browser_quit(self):
+        self.driver.quit()
+    
+    # Limpa o browser
+    def browser_clear(self):
+        self.driver.delete_all_cookies()
+        self.driver.execute_script('window.localStorage.clear()')
+        self.driver.execute_script('window.sessionStorage.clear()')
+        self.driver.refresh()

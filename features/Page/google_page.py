@@ -1,6 +1,8 @@
 import asyncio
-from playwright.sync_api import sync_playwright
-from .Base_page import BasePage
+from features.Page.Base_page import Browser
+from features.Page.elements_page.amazon_elements import Amazon_Locations
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
 
 class GooglePage:

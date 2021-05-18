@@ -3,9 +3,8 @@ from features.Page.Base_page import BasePage
 from features.Page.google_page import GooglePage
 from features.Page.amazon_page import AmazonPage
 
-Page = BasePage().page()
-GP = GooglePage(Page)
-AP = AmazonPage(Page)
+GP = GooglePage()
+AP = AmazonPage()
 
 
 @given('que acesso a pagina do google')
