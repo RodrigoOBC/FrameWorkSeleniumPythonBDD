@@ -1,40 +1,35 @@
 from behave import given, when, then, step
-from features.Page.Base_page import BasePage
+from features.Page.Base_page import Browser
 from features.Page.google_page import GooglePage
 from features.Page.amazon_page import AmazonPage
+from features.Page.elements_page.google_elements import Google_Locations
+
 
 GP = GooglePage()
 AP = AmazonPage()
 
-
-@given('que acesso a pagina do google')
+@given(u'que acesso a pagina do google')
 def step_impl(context):
-    GP.go_to_page("https://www.google.com/")
-
+    GP.go_to_page(Google_Locations().URL_GOOGLE)
 
 @when(u'pesquiso por "Amazon"')
 def step_impl(context):
     GP.search_google("Amazon")
 
-
 @then(u'resultados relacionados ao "Amazon" são exibidos')
 def step_impl(context):
-    GP.Validate_search()
-    GP.screenshot('EvidenciaGoogle.png')
-
+    GP.validate_search('Amazon.com.br')
+    GP.screenshot('Google.png')
 
 @given(u'que acesso a pagina principal da amazon')
 def step_impl(context):
     AP.go_to_page()
 
-
 @when(u'pesquiso "Livro" na Amazon')
 def step_impl(context):
-    AP.search_Amazon("Livro")
-
+    AP.search_amazon("Livro")
 
 @then(u'livros vendidos são exibidos')
 def step_impl(context):
-    AP.Validate_search("Livro")
-    AP.screenshot('EvidenciaAmazon.png')
-    AP.close_brownser()
+    AP.validate_search("Livro")
+    GP.screenshot('Amazon.png')
