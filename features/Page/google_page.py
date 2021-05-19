@@ -1,26 +1,24 @@
 import asyncio
-from playwright.sync_api import sync_playwright
-from .Base_page import BasePage
+from features.Page.Base_page import Browser
+from features.Page.elements_page.google_elements import Google_Locations
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from unittest import *
 
 
-class GooglePage:
-    def __init__(self, Page):
-        self.Page = Page
+class GooglePage(Browser):
 
-    def go_to_page(self, url):
-        self.Page.goto(url)
+    def go_to_page(self,url):
+        self.driver.get(url)
 
     def search_google(self, name):
-        self.Page.fill('input[name="q"]', name)
-        self.Page.press('input[name="q"]', "Enter")
+        elemento = self.driver.find_element(By.CSS_SELECTOR,Google_Locations().TEXTBOX_PESQUISAR_GOOGLE)
+        elemento.send_keys(name)
+        elemento.send_keys(Keys.ENTER)
 
-    def Validate_search(self):
-        answer = self.Page.wait_for_selector('text=Amazon.com.br - Tudo para você de A a Z', timeout=30000,
-                                             state="visible")
-        assert answer
+    def validate_search(self,text):
+        elemento = self.driver.find_element(By.XPATH,Google_Locations().ELEMENTO_BUSCA_GOOGLE).text
+        assert text.lower() in elemento.lower()
 
-    def screenshot(self, name):
-        self.Page.screenshot(path=name, full_page=True)
-
-    def close_brownser(self):
-        self.Page.close()
+    def screenshot(self,name):
+        self.driver.save_screenshot(name)
