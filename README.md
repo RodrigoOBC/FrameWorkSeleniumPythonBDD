@@ -49,6 +49,6 @@ e <b>que a força esteja com voces!!!</b>
 <ol>
   <li><a href="https://www.python.org/downloads/release/python-383/">Site Oficial do Python</a></li>
   <li><a href="https://behave.readthedocs.io/en/stable/index.html">Site Oficial do Behave</a></li>
-  <li><a href="https://playwright.dev/">Site Oficial do Playwright</a></li>
+  <li><a href="https://selenium-python.readthedocs.io/">Site Oficial do Selenium com Python</a></li>
 </ol> 
 
