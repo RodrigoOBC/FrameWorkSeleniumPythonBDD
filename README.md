@@ -1,4 +1,4 @@
-# Framework Playwright com Python-BDD
+# Framework Selenium com Python-BDD
 
 ## Índice
 
@@ -16,13 +16,20 @@
 &nbsp;&nbsp;&nbsp;&nbsp;O objetivo deste projeto é criar um Framework que ajudará em futuros projetos de automação.
 
 &nbsp;&nbsp;&nbsp;&nbsp;Para o projeto foram utilizados as linguagem Python na sua versão 3.8 (compativel da 3.7 ou +), 
-Playwright  1.10.0 e também o  Behave para escrita dos BDDs.
+Selenium e também o  Behave para escrita dos BDDs.
 
 ### <a name="Config">2.Instalando o Framework</a>  
 
 &nbsp;&nbsp;&nbsp;&nbsp;Para utilizar o projeto deverá ser instalado o <a href="https://www.python.org/downloads/release/python-383/">Python 3.8 ou 3.7</a>, IDE de sua preferência e devemos instalar as dependencias seguindo o seguinte codigo:
 
 ```shell script
+python3 -m venv venv
+
+source venv/bin/activate
+```
+
+```shell script
+
 pip install -r requirements.txt
 ```
 
@@ -42,6 +49,6 @@ e <b>que a força esteja com voces!!!</b>
 <ol>
   <li><a href="https://www.python.org/downloads/release/python-383/">Site Oficial do Python</a></li>
   <li><a href="https://behave.readthedocs.io/en/stable/index.html">Site Oficial do Behave</a></li>
-  <li><a href="https://playwright.dev/">Site Oficial do Playwright</a></li>
+  <li><a href="https://selenium-python.readthedocs.io/">Site Oficial do Selenium com Python</a></li>
 </ol> 
 
