@@ -4,7 +4,7 @@ from features.Page.elements_page.google_elements import Google_Locations
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from unittest import *
-
+from features.utils.utils import Utils
 
 class GooglePage(Browser):
 
@@ -12,12 +12,14 @@ class GooglePage(Browser):
         self.driver.get(url)
 
     def search_google(self, name):
-        elemento = self.driver.find_element(By.CSS_SELECTOR,Google_Locations().TEXTBOX_PESQUISAR_GOOGLE)
+        elemento = Utils(self.driver).wait_element((By.CSS_SELECTOR,Google_Locations().TEXTBOX_PESQUISAR_GOOGLE))
+        # elemento = self.driver.find_element(By.CSS_SELECTOR,Google_Locations().TEXTBOX_PESQUISAR_GOOGLE)
         elemento.send_keys(name)
         elemento.send_keys(Keys.ENTER)
 
     def validate_search(self,text):
-        elemento = self.driver.find_element(By.XPATH,Google_Locations().ELEMENTO_BUSCA_GOOGLE).text
+        elemento = Utils(self.driver).wait_element((By.XPATH,Google_Locations().ELEMENTO_BUSCA_GOOGLE))
+        # elemento = self.driver.find_element(By.XPATH,Google_Locations().ELEMENTO_BUSCA_GOOGLE).text
         assert text.lower() in elemento.lower()
 
     def screenshot(self,name):
